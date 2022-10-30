@@ -12,6 +12,7 @@ const jwt = require('jsonwebtoken');
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const cookieParser = require('cookie-parser');
+const downloadImg = require('image-downloader');
 
 const mongoose = require('mongoose');
 const User = require('./models/user');
@@ -31,6 +32,7 @@ mongoose.connect(process.env.MONGODB_USERS_URI, { useNewUrlParser: true, useUnif
 app.engine('hbs', hbs.engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, './public')));
+app.use('/bookCover', express.static(path.join(__dirname, './public/images/books')));
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -267,7 +269,12 @@ app.post('/updateDb', async (req, res) => {
     description: description
 }}});
 
-  res.sendStatus(204);
+downloadImg.image({ url: `https://covers.openlibrary.org/b/isbn/${isbnth}-M.jpg`, dest: path.join(__dirname, `./public/images/books/${isbnth}.jpg`)})
+.catch((err) => {
+  console.log(err);
+})
+
+res.sendStatus(204);
 });
 
 app.listen(process.env.PORT, () => {

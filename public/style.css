@@ -5,6 +5,7 @@ body, html {
     height: 100%;
     background-color:#ffffff ;
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
 }
 
 #menu {
@@ -121,4 +122,9 @@ h2 {
 
 .main.expanded {
     left: 300px;
+}
+
+.book
+{
+    display: inline-block;
 }

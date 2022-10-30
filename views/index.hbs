@@ -14,7 +14,7 @@
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
     <title>{{ title }}</title>
 </head>
-<body onload="loadLibrary({{books}})">
+<body>
     <div id="menu">
 		<div class="hamburger">
 			<span class="material-icons-round">menu</span>
@@ -30,12 +30,13 @@
 			<path id="blob-path" d="M60,500H0V0h60c0,0,20,172,20,250S60,900,60,500z"/>
 		</svg>
 	</div>
-	<h1>{{objId}}</h1>
-	<div id="library" class="library">
+	<div id="library" class="mainLibrary">
 		{{#each books}}
-		<div class="book">
-			<img src=`https://covers.openlibrary.org/b/isbn/`${books.isbn_13}`-M.jpg` alt="">
-		</div>
+			<div class="book">
+				<img src="/bookCover/{{_doc.isbn_13}}.jpg" />
+				<h3>{{_doc.title}}</h3>
+				<h4>{{_doc.author}}</h4>
+			</div>
 		{{/each}}
 	</div>
     <script src="./index.js"></script>
