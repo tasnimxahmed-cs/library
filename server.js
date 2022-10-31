@@ -133,7 +133,8 @@ app.get('/', isLoggedIn, async (req, res) => {
   books.forEach(element => {
     delete element._doc._id;
   });
-
+  books.sort((a,b) => a.title - b.title);
+  
   res.render('index', { title: 'Library | Home', books: books, layout: false })
 });
 
