@@ -63,8 +63,7 @@ async function getBook(id)
     }
     else description = 'Description Not Found';
 
-    $('#results').html(`<hr>
-    <h1>Results</h1>
+    $('#results').html(`<hr style="width: 100vw; border-top: 2px solid rgba(184,216,190,1);">
     <div class="result">
         <div class="left">
             <img src="https://covers.openlibrary.org/b/isbn/${isbnNum}-M.jpg" alt="" />
@@ -76,8 +75,8 @@ async function getBook(id)
         <div class="right">
             <h3 id="title">${title}</h3>
             <p id="author">${author}</p>
-            <p id="year" style="display: inline;">${pbd}</p><p id="pages" style="display: inline;">${pg}</p><p id="publisher" style="display: inline;">(${pb})</p><br><br>
-            <p id="isbn13" style="display: inline;">${isbnth}</p><p id="isbn10" style="display: inline;">${isbnt}</p>
+            <p id="year" style="display: inline;">${pbd}</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="pages" style="display: inline;">${pg} Pages</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="publisher" style="display: inline;">(${pb})</p><br><br>
+            <p id="isbn13" style="display: inline;">ISBN-13: ${isbnth}</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="isbn10" style="display: inline;">ISBN-10: ${isbnt}</p>
             <p id="description">${description}</p>
         </div>
     </div>`);

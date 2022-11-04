@@ -31,8 +31,9 @@
 		</svg>
 	</div>
     <div class="main">
+        <span class="title">Search for Books</span>
         <div class="s130">
-            <form>
+            <form action="/updateDb" method="POST">
                 <div class="inner-form">
                     <div class="input-field first-wrap">
                         <div class="svg-wrapper">
@@ -49,6 +50,7 @@
                 <span id="error" class="info"></span>
             </form>
         </div>
+        <div id="results" class="results"></div>
     </div>
     <script src="./index.js"></script>
     <script src="./isbn.js"></script>

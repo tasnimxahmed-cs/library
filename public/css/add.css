@@ -12,6 +12,7 @@ html {
   height: 100%;
   background-color:#ffffff ;
   font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 }
 
 /* Sections
@@ -33,15 +34,15 @@ body {
   height: 100%;
   position: fixed;
   background-color: #B8D8BE;
-  width: 300px;
+  width: 15vw;
   transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
   transform: translateX(-100%);
-  left: 60px;
+  left: 3vw;
 }
 
 #menu.expanded {
   transform: translateX(0%);
-  left: 0px;
+  left: 0vw;
 }
 
 .menu-inner {
@@ -135,17 +136,74 @@ h2 {
 
 .main
 {
-    width: 100vw;
-    height: 100vh;
+    width: 96vw;
     position: relative;
-    left: 60px;
+    left: 3vw;
     transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .main.expanded {
-    left: 300px;
-    width: 100vw;
-    height: 100vh;
+    left: 15vw;
+    width: 75vw;
+}
+
+.title{
+  display: block;
+  position: relative;
+  font-size: 2.5em;
+  top: 10vh;
+  font-weight: bold;
+  text-align: center;
+}
+
+.results{
+  position: relative;
+  top: -50vh;
+}
+
+.result{
+  position: relative;
+  top: 5vh;
+  display: table;
+  width: 100%;
+}
+
+.result .left{
+  position: absolute;
+  left: 0px;
+  width: 50%;
+  text-align: center;
+}
+
+.result .left img{
+  border-radius: 10px;
+  box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+}
+
+.result .left button{
+  position: relative;
+  top: 2vh;
+  border-radius: 15px;
+  border: none;
+  width: 12em;
+  background-color: rgba(184,216,190,1);
+  box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+  transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.result .left button:hover{
+  background-color: rgba(128,151,133,1);
+  color: white;
+}
+
+.result .left button:active{
+  box-shadow: none;
+}
+
+.result .right{
+  position: absolute;
+  right: 0px;
+  width: 50%;
 }
 
 /**
@@ -1077,7 +1135,7 @@ button {
 
 .s130 form .info {
   font-size: 15px;
-  color: #ccc;
+  color: red;
   padding-left: 26px;
 }
 
