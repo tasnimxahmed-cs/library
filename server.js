@@ -278,6 +278,16 @@ downloadImg.image({ url: `https://covers.openlibrary.org/b/isbn/${isbnth}-M.jpg`
 res.sendStatus(204);
 });
 
+app.post('/deleteBook', async (req, res) => {
+  await User.updateOne({ _id: `${req.user._id}`}, {
+    $pull: {
+      books: { isbn_13: `${req.body.isbnth}` }
+    }
+  });
+
+  res.sendStatus(204);
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`App listening on port ${process.env.PORT}`);
 });

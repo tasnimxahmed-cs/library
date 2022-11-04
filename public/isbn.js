@@ -68,7 +68,10 @@ async function getBook(id)
     <div class="result">
         <div class="left">
             <img src="https://covers.openlibrary.org/b/isbn/${isbnNum}-M.jpg" alt="" />
-            <button>Delete From Library</button>
+            <form action="/deleteBook" method="POST">
+            <input type="hidden" id="isbnth" name="isbnth" value="${isbnth}">
+            <button type="submit">Delete From Library</button>
+            </form>
         </div>
         <div class="right">
             <h3 id="title">${title}</h3>

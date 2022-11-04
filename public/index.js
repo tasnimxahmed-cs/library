@@ -21,14 +21,14 @@ $(window).load(function(){
 
 	$('.hamburger, .menu-inner').on('mouseenter', function(){
 		$(this).parent().addClass('expanded');
-		$("#main").addClass('expanded');
+		$(".main").addClass('expanded');
 		menuExpanded = true;
 	});
 
 	$('.menu-inner').on('mouseleave', function(){
 		menuExpanded = false;
 		$(this).parent().removeClass('expanded');
-		$("#main").removeClass('expanded');
+		$(".main").removeClass('expanded');
 	});
 
 	function easeOutExpo(currentIteration, startValue, changeInValue, totalIterations) {

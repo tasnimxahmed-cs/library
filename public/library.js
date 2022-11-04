@@ -1,4 +1,0 @@
-async function loadLibrary(books)
-{
-    
-}
