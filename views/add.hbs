@@ -23,7 +23,7 @@
 		<div class="menu-inner">
 			<ul>
 				<li><a href="/"><span class="material-icons-round">auto_stories</span>Library</a></li>
-				<li><a href="/add"><span class="material-icons-round">add</span>Add Item</a></li>
+				<li><a href="/add"><span class="material-icons-round">add</span>Add Books</a></li>
 				<li><a href="/logout"><span class="material-icons-round">logout</span>Logout</a></li>
 			</ul>
 		</div>
@@ -32,7 +32,7 @@
 		</svg>
 	</div>
     <div class="main">
-        <span class="title">Search for Books</span>
+        <span class="title">Add Books</span>
         <div class="s130">
             <form action="/updateDb" method="POST">
                 <div class="inner-form">
@@ -45,7 +45,7 @@
                         <input type="text" id="isbn" name="isbn" placeholder="Enter ISBN Number" autofocus />
                     </div>
                     <div class="input-field second-wrap">
-                        <button class="btn-search" onclick="getBook(`{{ id }}`)" type="submit">SEARCH</button>
+                        <button class="btn-search" onclick="getBook(`{{ id }}`)" type="submit">ADD</button>
                     </div>
                 </div>
                 <span id="error" class="info"></span>

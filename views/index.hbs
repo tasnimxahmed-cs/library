@@ -23,7 +23,7 @@
 		<div class="menu-inner">
 			<ul>
 				<li><a href="/"><span class="material-icons-round">auto_stories</span>Library</a></li>
-				<li><a href="/add"><span class="material-icons-round">add</span>Add Item</a></li>
+				<li><a href="/add"><span class="material-icons-round">add</span>Add Books</a></li>
 				<li><a href="/logout"><span class="material-icons-round">logout</span>Logout</a></li>
 			</ul>
 		</div>
@@ -32,6 +32,36 @@
 		</svg>
 	</div>
 	<div class="main">
+		<span class="page">My Library</span>
+		<div class="az-filter">
+			<span id="a" class="letter" onclick="filter('a')">A</span>
+			<span id="b" class="letter" onclick="filter('b')">B</span>
+			<span id="c" class="letter" onclick="filter('c')">C</span>
+			<span id="d" class="letter" onclick="filter('d')">D</span>
+			<span id="e" class="letter" onclick="filter('e')">E</span>
+			<span id="f" class="letter" onclick="filter('f')">F</span>
+			<span id="g" class="letter" onclick="filter('g')">G</span>
+			<span id="h" class="letter" onclick="filter('h')">H</span>
+			<span id="i" class="letter" onclick="filter('i')">I</span>
+			<span id="j" class="letter" onclick="filter('j')">J</span>
+			<span id="k" class="letter" onclick="filter('k')">K</span>
+			<span id="l" class="letter" onclick="filter('l')">L</span>
+			<span id="m" class="letter" onclick="filter('m')">M</span>
+			<span id="n" class="letter" onclick="filter('n')">N</span>
+			<span id="o" class="letter" onclick="filter('o')">O</span>
+			<span id="p" class="letter" onclick="filter('p')">P</span>
+			<span id="q" class="letter" onclick="filter('q')">Q</span>
+			<span id="r" class="letter" onclick="filter('r')">R</span>
+			<span id="s" class="letter" onclick="filter('s')">S</span>
+			<span id="t" class="letter" onclick="filter('t')">T</span>
+			<span id="u" class="letter" onclick="filter('u')">U</span>
+			<span id="v" class="letter" onclick="filter('v')">V</span>
+			<span id="w" class="letter" onclick="filter('w')">W</span>
+			<span id="x" class="letter" onclick="filter('x')">X</span>
+			<span id="y" class="letter" onclick="filter('y')">Y</span>
+			<span id="z" class="letter" onclick="filter('z')">Z</span>
+			<span id="all" class="letter-active" style="letter-spacing: 0;" onclick="filter('all')">ALL</span>
+		</div>
 		{{#each books}}
 			<div class="book">
 				{{#bookCover _doc.isbn_13}}{{/bookCover}}
@@ -40,6 +70,7 @@
 			</div>
 		{{/each}}
 	</div>
+	<script src="./js/library.js"></script>
     <script src="./js/index.js"></script>
 </body>
 </html>

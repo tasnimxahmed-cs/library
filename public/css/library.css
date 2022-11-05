@@ -16,11 +16,18 @@
     width: 115px;
     height: 170px;
     border-radius: 10px;
-    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+    box-shadow: 0.5rem 1rem 2rem rgba(132, 139, 200, 0.18);
+    transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.book img:hover{
+    position: relative;
+    transform: translateY(-1vh);
+    box-shadow: .5rem .75rem .35rem rgba(132, 139, 200, 0.18);
 }
 
 .title{
-    font-size: 1em;
+    font-size: .9em;
     font-weight: bold;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -33,7 +40,7 @@
 }
 
 .author{
-    font-size: .9em;
+    font-size: .8em;
     font-weight: normal;
     display: block;
     position: relative;
@@ -42,4 +49,41 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.page{
+    display: block;
+    font-size: 2.5em;
+    padding-top: 2vh;
+    margin-bottom: 5vh;
+    font-weight: bold;
+    text-align: center;
+}
+
+.az-filter{
+    margin-bottom: 3vh;
+}
+
+.letter
+{
+    font-size: 1em;
+    letter-spacing: .75vw;
+}
+
+.letter:hover
+{
+    color: rgba(184,216,190,1);
+    transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
+    cursor: pointer;
+}
+
+.letter-active{
+    color: rgba(128,151,133,1);
+    font-weight: bold;
+    font-size: 1em;
+    letter-spacing: .75vw;
+}
+
+.letter-active:hover{
+    cursor: pointer;
 }
