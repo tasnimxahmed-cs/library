@@ -1,0 +1,45 @@
+.main{
+    text-align: center;
+}
+.book
+{
+    display: inline-block;
+    text-align: center;
+    margin-left: 1vw;
+    margin-bottom: 5vh;
+    width: 130px;
+    height: 230px;
+    vertical-align: top;
+}
+
+.book img {
+    width: 115px;
+    height: 170px;
+    border-radius: 10px;
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+}
+
+.title{
+    font-size: 1em;
+    font-weight: bold;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    position: relative;
+    top: 1vh;
+    width: 130px;
+    overflow: hidden;
+}
+
+.author{
+    font-size: .9em;
+    font-weight: normal;
+    display: block;
+    position: relative;
+    top: 1vh;
+    width: 130px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

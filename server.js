@@ -13,6 +13,7 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const cookieParser = require('cookie-parser');
 const downloadImg = require('image-downloader');
+const imgSize = require('image-size');
 
 const mongoose = require('mongoose');
 const User = require('./models/user');
@@ -29,7 +30,14 @@ mongoose.connect(process.env.MONGODB_USERS_URI, { useNewUrlParser: true, useUnif
 })
 
 //middleware
-app.engine('hbs', hbs.engine({ extname: '.hbs' }));
+app.engine('hbs', hbs.engine({ extname: '.hbs',
+helpers: {
+  bookCover: function(path, options) {
+    const dimensions = imgSize(__dirname+"/public/images/books/"+path+".jpg");
+    if(dimensions.width == 1 && dimensions.height == 1) return "<img src='/bookCover/coverNotFound.jpg' />"
+    else return "<img src='/bookCover/"+path+".jpg' />";
+  }
+}}));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, './public')));
 app.use('/bookCover', express.static(path.join(__dirname, './public/images/books')));
@@ -133,7 +141,7 @@ app.get('/', isLoggedIn, async (req, res) => {
   books.forEach(element => {
     delete element._doc._id;
   });
-  books.sort((a,b) => a.title - b.title);
+  books.sort((a,b) => a.title.localeCompare(b.title));
   
   res.render('index', { title: 'Library | Home', books: books, layout: false })
 });
