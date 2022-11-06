@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "node server.js",
+    "test": "echo \"Error: no test specified\"",
     "dev": "nodemon server.js"
   },
   "author": "",
