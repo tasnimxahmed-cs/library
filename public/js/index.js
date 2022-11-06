@@ -83,12 +83,3 @@ $(window).load(function(){
 	window.requestAnimationFrame(svgCurve);
 	
 });
-
-var search = document.getElementById("isbn");
-
-search.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    document.getElementById("search").click();
-  }
-});

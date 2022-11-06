@@ -203,7 +203,7 @@ app.post('/signup', async (req, res) => {
 });
 
 app.get('/add', passport.authenticate('jwt', { session: false }), async (req, res) => {
-  res.render('add', { title: 'Library | Add Items', id: req.user._id, layout: false })
+  res.render('add', { title: 'Library | Add Books', id: req.user._id, layout: false })
 })
 
 app.post('/updateDb', async (req, res) => {

@@ -1,3 +1,14 @@
+const { image } = require("image-downloader");
+
+var search = document.getElementById("isbn");
+
+search.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("add").click();
+  }
+});
+
 async function getBook(id)
 {
     document.getElementById("error").innerHTML = '';
@@ -66,7 +77,7 @@ async function getBook(id)
     $('#results').html(`<hr style="width: 100vw; border-top: 2px solid rgba(184,216,190,1);">
     <div class="result">
         <div class="left">
-            <img src="https://covers.openlibrary.org/b/isbn/${isbnNum}-M.jpg" alt="" />
+            <img id="cover" src="https://covers.openlibrary.org/b/isbn/${isbnNum}-M.jpg" alt="" />
             <form action="/deleteBook" method="POST">
             <input type="hidden" id="isbnth" name="isbnth" value="${isbnth}">
             <button type="submit">Delete From Library</button>
@@ -79,8 +90,10 @@ async function getBook(id)
             <p id="isbn13" style="display: inline;">ISBN-13: ${isbnth}</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="isbn10" style="display: inline;">ISBN-10: ${isbnt}</p>
             <p id="description">${description}</p>
         </div>
-    </div>`);
+    </div>`)
 
     document.getElementById("isbn").value = '';
     document.getElementById("isbn").focus();
+
+    
 }

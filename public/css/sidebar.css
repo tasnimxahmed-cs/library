@@ -26,6 +26,7 @@ body, html{
     font-family: 'Roboto', sans-serif;
     margin: 0 auto;
     transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
+    overflow-x: hidden;
 }
 
 #menu {
@@ -134,7 +135,7 @@ h2 {
   
 .main
   {
-      width: 96vw;
+      width: 97vw;
       position: relative;
       left: 3vw;
       transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
