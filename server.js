@@ -14,6 +14,7 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 const cookieParser = require('cookie-parser');
 const downloadImg = require('image-downloader');
 const imgSize = require('image-size');
+import fetch from 'node-fetch';
 
 const mongoose = require('mongoose');
 const User = require('./models/user');
