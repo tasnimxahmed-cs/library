@@ -52,6 +52,5 @@ jobs:
         with:
           app-name: 'virtual-library'
           slot-name: 'Production'
-          app-settings-json: '${{ secrets.APP_SETTINGS }}' 
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3A74E79E803D4C4687006710E3052FC8 }}
           package: .

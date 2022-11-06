@@ -81,7 +81,7 @@ async function getBook(id)
     var coverPath = '';
     cover.onload = function() {
         if(this.width == 1 && this.height == 1) coverPath = "<img id='cover' src='/bookCover/coverNotFound.jpg' />"
-        else "<img id='cover' src='/bookCover/"+isbnNum+".jpg' />"
+        else coverPath = "<img id='cover' src='/bookCover/"+isbnNum+".jpg' />"
 
         $('#results').html(`<hr style="width: 100vw; border-top: 2px solid rgba(184,216,190,1);">
         <div class="result">
