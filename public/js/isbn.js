@@ -1,5 +1,3 @@
-const { image } = require("image-downloader");
-
 var search = document.getElementById("isbn");
 
 search.addEventListener("keypress", function(event) {
@@ -74,26 +72,32 @@ async function getBook(id)
     }
     else description = 'Description Not Found';
 
-    $('#results').html(`<hr style="width: 100vw; border-top: 2px solid rgba(184,216,190,1);">
-    <div class="result">
-        <div class="left">
-            <img id="cover" src="https://covers.openlibrary.org/b/isbn/${isbnNum}-M.jpg" alt="" />
-            <form action="/deleteBook" method="POST">
-            <input type="hidden" id="isbnth" name="isbnth" value="${isbnth}">
-            <button type="submit">Delete From Library</button>
-            </form>
-        </div>
-        <div class="right">
-            <h3 id="title">${title}</h3>
-            <p id="author">${author}</p>
-            <p id="year" style="display: inline;">${pbd}</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="pages" style="display: inline;">${pg} Pages</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="publisher" style="display: inline;">(${pb})</p><br><br>
-            <p id="isbn13" style="display: inline;">ISBN-13: ${isbnth}</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="isbn10" style="display: inline;">ISBN-10: ${isbnt}</p>
-            <p id="description">${description}</p>
-        </div>
-    </div>`)
-
     document.getElementById("isbn").value = '';
     document.getElementById("isbn").focus();
 
-    
+    const cover = new Image();
+    cover.src = `https://covers.openlibrary.org/b/isbn/${isbnNum}-M.jpg`
+
+    var coverPath = '';
+    cover.onload = function() {
+        if(this.width == 1 && this.height == 1) coverPath = "<img id='cover' src='/bookCover/coverNotFound.jpg' />"
+        else "<img id='cover' src='/bookCover/"+isbnNum+".jpg' />"
+
+        $('#results').html(`<hr style="width: 100vw; border-top: 2px solid rgba(184,216,190,1);">
+        <div class="result">
+            <div class="left">`+coverPath+
+                `<form action="/deleteBook" method="POST">
+                <input type="hidden" id="isbnth" name="isbnth" value="${isbnth}">
+                <button type="submit">Delete From Library</button>
+                </form>
+            </div>
+            <div class="right">
+                <h3 id="title">${title}</h3>
+                <p id="author">${author}</p>
+                <p id="year" style="display: inline;">${pbd}</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="pages" style="display: inline;">${pg} Pages</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="publisher" style="display: inline;">(${pb})</p><br><br>
+                <p id="isbn13" style="display: inline;">ISBN-13: ${isbnth}</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="isbn10" style="display: inline;">ISBN-10: ${isbnt}</p>
+                <p id="description">${description}</p>
+            </div>
+        </div>`)
+    }
 }

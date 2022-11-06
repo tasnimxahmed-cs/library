@@ -60,6 +60,8 @@ body {
 .result .left img{
   border-radius: 10px;
   box-shadow: .5rem 2rem 3rem rgba(132, 139, 200, 0.18);
+  width: 115px;
+  height: 170px;
 }
 
 .result .left button{

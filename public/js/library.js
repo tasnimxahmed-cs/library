@@ -21,3 +21,43 @@ function filter(letter)
         else books[i].style.display = "inline-block";
     }
 }
+
+modals = document.getElementsByClassName('modal');
+
+function modal(book)
+{
+    const modal = document.getElementById("modal-"+book);
+
+    modal.style.display = "block";
+}
+
+function closeModal(book)
+{
+    const modal = document.getElementById("modal-"+book);
+
+    modal.style.display = "none";
+
+}
+
+window.onclick = function(e){
+    for(i=0;i<modals.length;i++)
+    {
+        if(e.target == modals[i])
+        {
+            modals[i].style.display = "none";
+        }
+    }
+}
+
+document.onkeyup = function(e){
+    if(e.key === 'Escape')
+    {
+        for(i=0;i<modals.length;i++)
+        {
+            if(modals[i].style.display == "block")
+            {
+                modals[i].style.display = "none";
+            }
+        }
+    }
+}

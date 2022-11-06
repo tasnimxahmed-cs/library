@@ -34,8 +34,13 @@ app.engine('hbs', hbs.engine({ extname: '.hbs',
 helpers: {
   bookCover: function(path, options) {
     const dimensions = imgSize(__dirname+"/public/images/books/"+path+".jpg");
-    if(dimensions.width == 1 && dimensions.height == 1) return "<img src='/bookCover/coverNotFound.jpg' />"
-    else return "<img src='/bookCover/"+path+".jpg' />";
+    if(dimensions.width == 1 && dimensions.height == 1) return "<img id='cover-"+path+"' src='/bookCover/coverNotFound.jpg' onclick='modal("+path+")' />"
+    else return "<img id='cover-"+path+"' src='/bookCover/"+path+".jpg' onclick='modal("+path+")' />";
+  },
+  bookCoverModal: function(path, options) {
+    const dimensions = imgSize(__dirname+"/public/images/books/"+path+".jpg");
+    if(dimensions.width == 1 && dimensions.height == 1) return "<img id='cover-"+path+"' src='/bookCover/coverNotFound.jpg' />"
+    else return "<img id='cover-"+path+"' src='/bookCover/"+path+".jpg' />";
   }
 }}));
 app.set('view engine', 'hbs');

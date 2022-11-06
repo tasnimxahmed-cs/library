@@ -68,6 +68,27 @@
 				<span class="title">{{_doc.title}}</span>
 				<span class="author">{{_doc.author}}</span>
 			</div>
+			<div id="modal-{{_doc.isbn_13}}" class="modal">
+				<div class="modal-content">
+					<span id="close-{{_doc.isbn_13}}" class="close" onclick="closeModal({{_doc.isbn_13}})">&times;</span>
+					<div class="result">
+						<div class="left">
+							{{#bookCoverModal _doc.isbn_13}}{{/bookCoverModal}}
+							<form action="/deleteBook" method="POST">
+							<input type="hidden" id="isbnth" name="isbnth" value={{_doc.isbn_13}}>
+							<button type="submit">Delete From Library</button>
+							</form>
+						</div>
+						<div class="right">
+							<h3 id="title">{{_doc.title}}</h3>
+							<p id="author">{{_doc.author}}</p>
+							<p id="year" style="display: inline;">{{_doc.publish_date}}</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="pages" style="display: inline;">{{_doc.number_of_pages}} Pages</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="publisher" style="display: inline;">{{_doc.publisher}}</p><br><br>
+							<p id="isbn13" style="display: inline;">ISBN-13: {{_doc.isbn_13}}</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="isbn10" style="display: inline;">ISBN-10: {{_doc.isbn_10}}</p>
+							<p id="description">{{_doc.description}}</p>
+						</div>
+					</div>
+				</div>	
+			</div>
 		{{/each}}
 	</div>
 	<script src="./js/library.js"></script>
